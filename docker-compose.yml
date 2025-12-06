@@ -1,0 +1,32 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=mongodb://mongo:27017/tms
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+      - mongo
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - tms_redis:/data
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - tms_mongo:/data/db
+
+volumes:
+  tms_mongo:
+  tms_redis:
