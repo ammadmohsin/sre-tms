@@ -26,6 +26,7 @@ services:
       - "27017:27017"
     volumes:
       - tms_mongo:/data/db
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
 
 volumes:
   tms_mongo:
