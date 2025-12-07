@@ -2,13 +2,23 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { cn } from "~/lib/utils";
-import { LucideIcon } from "lucide-react";
+import {
+  Users,
+  Package,
+  ShoppingCart,
+  TrendingUp,
+  AlertTriangle,
+  CheckCircle,
+  Truck,
+  DollarSign,
+  LucideIcon,
+} from "lucide-react";
 
 interface StatCardProps {
   title: string;
   value: string | number;
   description?: string;
-  icon: LucideIcon;
+  icon: string;
   trend?: {
     value: number;
     isPositive: boolean;
@@ -16,14 +26,30 @@ interface StatCardProps {
   gradient?: string;
 }
 
+const iconMap: Record<string, LucideIcon> = {
+  Users,
+  Package,
+  ShoppingCart,
+  TrendingUp,
+  AlertTriangle,
+  CheckCircle,
+  Truck,
+  DollarSign,
+};
+
 export function StatCard({
   title,
   value,
   description,
-  icon: Icon,
+  icon,
   trend,
   gradient = "from-primary to-accent",
 }: StatCardProps) {
+  const Icon = iconMap[icon];
+
+  if (!Icon) {
+    return null;
+  }
   return (
     <Card className="glass border-white/20 overflow-hidden relative group hover:shadow-xl transition-all duration-300">
       <div

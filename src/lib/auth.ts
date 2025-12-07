@@ -3,6 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
+import { env } from "../../env";
 
 const prisma = new PrismaClient();
 
@@ -22,9 +23,7 @@ declare module "next-auth" {
     accessLevel: string;
     employeeId?: string;
   }
-}
 
-declare module "next-auth/jwt" {
   interface JWT {
     id: string;
     role: string;
@@ -39,7 +38,8 @@ const loginSchema = z.object({
 });
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: env.NEXTAUTH_SECRET,
+  trustHost: true,
   providers: [
     Credentials({
       credentials: {

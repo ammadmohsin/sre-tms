@@ -2,16 +2,6 @@ import { auth } from "~/lib/auth";
 import { StatCard } from "~/components/dashboard/stat-card";
 import { ProductionChart } from "~/components/dashboard/production-chart";
 import { RecentActivity } from "~/components/dashboard/recent-activity";
-import {
-  Users,
-  Package,
-  ShoppingCart,
-  TrendingUp,
-  AlertTriangle,
-  CheckCircle,
-  Truck,
-  DollarSign,
-} from "lucide-react";
 
 export default async function DashboardPage() {
   const session = await auth();
@@ -36,7 +26,7 @@ export default async function DashboardPage() {
             title="Total Employees"
             value="156"
             description="8 new this month"
-            icon={Users}
+            icon="Users"
             trend={{ value: 12, isPositive: true }}
             gradient="from-blue-500 to-cyan-500"
           />
@@ -44,7 +34,7 @@ export default async function DashboardPage() {
             title="Active Orders"
             value="48"
             description="12 pending approval"
-            icon={ShoppingCart}
+            icon="ShoppingCart"
             trend={{ value: 8, isPositive: true }}
             gradient="from-purple-500 to-pink-500"
           />
@@ -52,7 +42,7 @@ export default async function DashboardPage() {
             title="Inventory Value"
             value="$245K"
             description="Across all departments"
-            icon={Package}
+            icon="Package"
             trend={{ value: 5, isPositive: true }}
             gradient="from-green-500 to-emerald-500"
           />
@@ -60,7 +50,7 @@ export default async function DashboardPage() {
             title="Monthly Revenue"
             value="$89K"
             description="Target: $100K"
-            icon={DollarSign}
+            icon="DollarSign"
             trend={{ value: -3, isPositive: false }}
             gradient="from-orange-500 to-red-500"
           />
@@ -97,21 +87,21 @@ export default async function DashboardPage() {
             title="Department Staff"
             value="24"
             description="3 on leave today"
-            icon={Users}
+            icon="Users"
             gradient="from-blue-500 to-cyan-500"
           />
           <StatCard
             title="Pending Approvals"
             value="7"
             description="Leave & shift requests"
-            icon={AlertTriangle}
+            icon="AlertTriangle"
             gradient="from-orange-500 to-red-500"
           />
           <StatCard
             title="Department Stock"
             value="$45K"
             description="Current inventory value"
-            icon={Package}
+            icon="Package"
             gradient="from-green-500 to-emerald-500"
           />
         </div>
@@ -139,21 +129,21 @@ export default async function DashboardPage() {
             title="Pending Inspections"
             value="15"
             description="Awaiting quality check"
-            icon={AlertTriangle}
+            icon="AlertTriangle"
             gradient="from-orange-500 to-red-500"
           />
           <StatCard
             title="Passed (>90% Purity)"
             value="142"
             description="This month"
-            icon={CheckCircle}
+            icon="CheckCircle"
             gradient="from-green-500 to-emerald-500"
           />
           <StatCard
             title="Low Stock Items"
             value="8"
             description="Need restocking"
-            icon={Package}
+            icon="Package"
             gradient="from-red-500 to-pink-500"
           />
         </div>
@@ -181,21 +171,21 @@ export default async function DashboardPage() {
             title="Active Shipments"
             value="12"
             description="In transit"
-            icon={Truck}
+            icon="Truck"
             gradient="from-blue-500 to-cyan-500"
           />
           <StatCard
             title="Pending Exports"
             value="8"
             description="Ready to ship"
-            icon={TrendingUp}
+            icon="TrendingUp"
             gradient="from-green-500 to-emerald-500"
           />
           <StatCard
             title="Expected Imports"
             value="5"
             description="Arriving this week"
-            icon={Package}
+            icon="Package"
             gradient="from-purple-500 to-pink-500"
           />
         </div>
@@ -221,21 +211,21 @@ export default async function DashboardPage() {
             title="In Transit"
             value="18"
             description="Active shipments"
-            icon={Truck}
+            icon="Truck"
             gradient="from-blue-500 to-cyan-500"
           />
           <StatCard
             title="Delivered Today"
             value="7"
             description="On-time deliveries"
-            icon={CheckCircle}
+            icon="CheckCircle"
             gradient="from-green-500 to-emerald-500"
           />
           <StatCard
             title="Pending Pickup"
             value="4"
             description="Ready to dispatch"
-            icon={Package}
+            icon="Package"
             gradient="from-orange-500 to-red-500"
           />
         </div>
@@ -258,21 +248,21 @@ export default async function DashboardPage() {
           title="My Orders"
           value="5"
           description="Active orders"
-          icon={ShoppingCart}
+          icon="ShoppingCart"
           gradient="from-blue-500 to-cyan-500"
         />
         <StatCard
           title="Tasks Today"
           value="12"
           description="8 completed"
-          icon={CheckCircle}
+          icon="CheckCircle"
           gradient="from-green-500 to-emerald-500"
         />
         <StatCard
           title="Department Stock"
           value="Good"
           description="All items in stock"
-          icon={Package}
+          icon="Package"
           gradient="from-purple-500 to-pink-500"
         />
       </div>

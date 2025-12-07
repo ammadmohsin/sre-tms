@@ -9,8 +9,10 @@ export const env = createEnv({
     server: {
         DATABASE_URL: z.string().url(),
         REDIS_HOST: z.string(),
-        REDIS_HOST_PASSWORD: z.string(),
+        REDIS_HOST_PASSWORD: z.string().default(""),
         REDIS_APP_ID: z.string(),
+        NEXTAUTH_SECRET: z.string(),
+        NEXTAUTH_URL: z.string().url(),
         NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
     },
 
@@ -31,11 +33,12 @@ export const env = createEnv({
         REDIS_HOST: process.env.REDIS_HOST,
         REDIS_HOST_PASSWORD: process.env.REDIS_HOST_PASSWORD,
         REDIS_APP_ID: process.env.REDIS_APP_ID,
+        NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+        NEXTAUTH_URL: process.env.NEXTAUTH_URL,
         NODE_ENV: process.env.NODE_ENV,
     },
     /**
-     * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
-     * useful for Docker builds.
+     * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.
      */
     skipValidation: !!process.env.SKIP_ENV_VALIDATION,
     /**

@@ -1,6 +1,5 @@
 import { auth } from "~/lib/auth";
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
 
 // Public routes that don't require authentication
 const publicRoutes = ["/login", "/api/auth"];
@@ -8,6 +7,7 @@ const publicRoutes = ["/login", "/api/auth"];
 // Role-based route access
 const roleRoutes = {
   ADMIN: [
+    "/dashboard",
     "/admin",
     "/employees",
     "/departments",

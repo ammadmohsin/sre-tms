@@ -447,7 +447,6 @@ orders.list();
 ### DevOps
 
 - CI/CD pipelines
-- Docker containers
 - Monitoring dashboards
 - Backup scripts
 

@@ -64,7 +64,7 @@ async function main() {
       await prisma.user.create({
         data: userData,
       });
-    } catch (e) {
+    } catch {
       // User already exists, skip
       console.log(`User ${userData.email} already exists, skipping...`);
     }
@@ -101,7 +101,7 @@ async function main() {
       await prisma.department.create({
         data: dept,
       });
-    } catch (e) {
+    } catch {
       // Department already exists, skip
       console.log(`Department ${dept.code} already exists, skipping...`);
     }
@@ -127,7 +127,7 @@ async function main() {
       await prisma.category.create({
         data: cat,
       });
-    } catch (e) {
+    } catch {
       // Category already exists, skip
       console.log(`Category ${cat.name} already exists, skipping...`);
     }
@@ -163,7 +163,7 @@ async function main() {
     if (!existing) {
       try {
         await prisma.shift.create({ data: shift });
-      } catch (e) {
+      } catch {
         console.log(`Failed to create shift ${shift.name}, skipping...`);
       }
     }
